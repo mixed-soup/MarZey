@@ -9,4 +9,10 @@ publish_test
 Dependencies
 SS14.Launcher/FodyWeavers.xsd
 
+*.tmp
+*.log
+*.bak
+*.vs
+*.vsidx1
+
 !PublishFiles/Space Station 14 Launcher.app/Contents/Resources/bin/
