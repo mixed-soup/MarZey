@@ -1,74 +1,83 @@
-## ЭТОТ ТЕКСТ НАПИСАЛ ДМИТРИЙ УТКИН
+## Z чтобы активировать предмет в руке
+привте как дел??
+![# HRP-launcher](SS14.Launcher/Assets/logo-long.png)
 
-![# Marseyloader](SS14.Launcher/Assets/logo-long.png)
+### Лаунчер Space Station 14 с поддержкой модификаций/патчинга на стороне клиента.
 
-Space Station 14 launcher with client-side modding/patching support.
+![# badge](Assets/README/no-stops-no-regrets.svg)  
+![# badge](Assets/README/ensuring-code-integrity.svg)  
+![# badge](Assets/README/works-on-selfmerging.svg)  
 
-![# badge](Assets/README/no-stops-no-regrets.svg)
-![# badge](Assets/README/ensuring-code-integrity.svg)
-![# badge](Assets/README/works-on-selfmerging.svg)
+### Изменения  
+* **Интеграция библиотеки Harmony для патчинга.**  
+  * Полная поддержка модификации методов в клиентских/общих сборках контента и движка.  
+  * Загрузка пользовательского кода как части игры.  
+  * Поддержка Windows.  
+  * Без инжекторов — полностью на основе рефлексии.  
+  * Патчи скрыты от игры.  
+  * Поддержка "бэкпорта" (обратной совместимости).  
+* Включена поддержка мультиаккаунтинга.  
+* Изменения в конфиденциальности:  
+  * Токены обновляются только при подключении или смене аккаунта, чтобы избежать детекта альтов.  
+  * Спуфинг HWId1.  
+  * Принудительное отключение Discord RPC.  
+  * Отключение "Redialing" (принудительных переподключений).  
+  * Зеркало Wizden Hub установлено как хаб по умолчанию.  
+  * Гостевой режим / без авторизации.  
+  * Опция не входить в аккаунт по умолчанию.  
+  * Локальное изменение ника для скриншотов (не меняет ник в игре).  
+* Marsey.  
 
-### Changes
+### Участие в разработке  
+Если у вас есть идеи для новых функций, вы можете отправить pull request в основную ветку.  
 
-* **Integration with the Harmony patching library.**
-* * Full functionality regarding methods in client/shared content/engine assemblies.
-* * Sideloading custom code as part of the game
-* * Win support
-* * No injectors used, entirely based on reflection
-* * Patches are hidden from game
-* * "Backport" support
-* Enabled multiaccount
-* Privacy changes
-* * Tokens are updated only on connect or account switch to evade alt detection
-* * HWId1 spoofing
-* * Forcibly disable Discord RPC
-* * Disable Redialing (Forced reconnects)
-* * Wizden hub mirror set as default hub
-* * Guest/Authless mode
-* * Option to not log into an account by default
-* * Locally change username for screenshots (This doesn't change your username in-game)
-* Marsey.
+### Настройка  
+1. Соберите решение.  
+2. Запустите `SS14.Launcher`.  
 
-### Contributing
-If you have any feature you want added to the main repository you are free to submit a pull request.
+### Запуск  
+1. Скачайте релиз.  
+2. Распакуйте лаунчер.  
+3. Запустите загрузчик.  
 
-### Setting up
-1. Build solution
-2. Run "SS14.Launcher"
+### Патчинг  
+Marseyloader использует библиотеку [Harmony](https://github.com/pardeike/Harmony).  
+Введение в библиотеку можно найти [здесь](https://harmony.pardeike.net/), а документацию — [тут](https://harmony.pardeike.net/articles/intro.html).  
 
-### Running
-1. Download release
-2. Extract launcher
-3. Start the loader
+Примеры патчей есть в репозиториях:  
+- [ExampleMarseyPatch](https://github.com/ValidHunters/ExampleMarseyPatch)  
+- [SubversionalExamplePatch](https://github.com/ValidHunters/SubversionalExamplePatch)  
 
-### Patching
-Marseyloader uses the [Harmony](https://github.com/pardeike/Harmony) patching library. Introduction for the library is provided [here](https://harmony.pardeike.net/) and documentation [here](https://harmony.pardeike.net/articles/intro.html).
+### FAQ  
 
-Example patches can be found in the [ExampleMarseyPatch](https://github.com/ValidHunters/ExampleMarseyPatch) [SubversionalExamplePatch](https://github.com/ValidHunters/SubversionalExamplePatch) repositories.
+#### Где попросить помощь?  
+В Issues на GitHub или на [сервере Discord](https://discord.gg/xHtZXybKeh).  
 
-### FAQ
+#### Как сделать патч?  
+[Примеры Marseypatch'ей](https://github.com/ValidHunters/ExampleMarseyPatch)  
 
-#### Where do I ask for help?
-Github issues or on the [discord server](https://discord.gg/xHtZXybKeh).
+#### Для чего нужен Subversion?  
+Subversion позволяет добавлять свой код (а не изменять существующий), например, кастомные команды и другие функции, которые могут взаимодействовать с игрой, как будто они были частью оригинального кода.  
 
-#### How do I make a patch?
-[Example Marseypatches](https://github.com/ValidHunters/ExampleMarseyPatch)
+#### Куда помещать DLL-файлы патчей?  
+В папку, которая открывается при нажатии "Open patch directory" во вкладке "Plugins".  
 
-#### What is subversion for?
-Subversion is used for adding your custom code (and not patching existing code) to the game, like custom commands and what not that can fully interact with the game as if they were part of the original code.
+#### Можете сделать X?  
+Нет.  
 
-#### Where do I put the patch dll's?
-Wherever clicking on the "Open patch directory" in the "Plugins" tab leads you
+#### Логи IL?  
+Включите debug-режим загрузчика — логи появятся на рабочем столе.  
 
-#### Can you do X?
-No.
+#### СТОП!  
 
-#### IL logs?
-Enable loader debug, will be on your desktop
+Проект будет немедленно закрыт (EOL), как только наши *любимые друзья* разрешат клиентские ресурс-паки и моды интерфейса.  
 
-#### STOP!
+---  
 
-Project EOL's immediately when our beloved friends *over there* allow client-side resource packs and UI mods.<br>
+*Примечание:*  
+- "Marsey" оставлено без перевода, так как это, вероятно, внутреннее название или термин.  
+- "EOL" (End of Life) — стандартный термин в разработке, означающий прекращение поддержки.  
+- "Subversion" здесь относится к механизму добавления кода, а не к системе контроля версий SVN.
 This will never happen though.
 
 ### TODO
