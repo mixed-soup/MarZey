@@ -7,19 +7,19 @@
         Width="500" Height="130"
         x:Class="SS14.Launcher.Views.AddFavoriteDialog"
         Icon="{DynamicResource WindowIcon}"
-        Title="Add Favorite Server"
+        Title="Добавить сервер в избранное"
         Padding="4"
         WindowStartupLocation="CenterOwner">
 
   <DockPanel LastChildFill="true">
     <DockPanel DockPanel.Dock="Bottom">
-      <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Name="SubmitButton" Content="Add" />
-      <TextBlock Text="Address is invalid"  VerticalAlignment="Center" Name="TxtInvalid" />
+      <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Name="SubmitButton" Content="Добавить" />
+      <TextBlock Text="Некорректный адрес" VerticalAlignment="Center" Name="TxtInvalid" />
     </DockPanel>
     <Grid Margin="4" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
-      <TextBlock VerticalAlignment="Center" Margin="0,0,4,0" Grid.Column="0" Grid.Row="0" Text="Name:" />
-      <TextBlock VerticalAlignment="Center" Margin="0,0,4,0" Grid.Column="0" Grid.Row="1" Text="Address:" />
-      <TextBox Grid.Column="1" Grid.Row="0" Name="NameBox" Watermark="Honk Station" />
+      <TextBlock VerticalAlignment="Center" Margin="0,0,4,0" Grid.Column="0" Grid.Row="0" Text="Название:" />
+      <TextBlock VerticalAlignment="Center" Margin="0,0,4,0" Grid.Column="0" Grid.Row="1" Text="Адрес:" />
+      <TextBox Grid.Column="1" Grid.Row="0" Name="NameBox" Watermark="EDsLi Pidor Station" />
       <TextBox Grid.Column="1" Grid.Row="1" Name="AddressBox" Watermark="ss14://example.com" />
     </Grid>
   </DockPanel>

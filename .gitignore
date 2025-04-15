@@ -1,18 +1,52 @@
+### IDE ###
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# JetBrains Rider
+.idea/
+*.DotSettings
+*.DotSettings.user
+
+# VS Code
+.vscode/
+
+### Билд ###
 bin/
 obj/
-.idea/
-*.zip
-*.DotSettings.user
-.DS_Store
-cmake-build*
-publish_test
-Dependencies
-SS14.Launcher/FodyWeavers.xsd
-
+cmake-build*/
+publish_test/
+TestResults/  # Результаты юнит-тестов
+*.cache       # Кэш-файлы компиляции
 *.tmp
 *.log
 *.bak
 *.vs
 *.vsidx1
+
+### Docker ###
+docker-compose.*.yml
+**/.dockerignore
+**/.env
+
+### Пакеты ###
+packages/     # NuGet пакеты (восстанавливаются через restore)
+*.nupkg       # Пакеты NuGet
+
+### OS ###
+*.DS_Store
+Thumbs.db
+Desktop.ini
+
+### Проект ###
+Dependencies/
+*.zip
+SS14.Launcher/FodyWeavers.xsd
+
+### Исключения ###
+# Разрешаем конкретную папку bin в PublishFiles
 
 !PublishFiles/Space Station 14 Launcher.app/Contents/Resources/bin/

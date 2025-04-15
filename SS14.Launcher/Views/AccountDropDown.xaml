@@ -17,9 +17,9 @@
       <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Vertical" IsVisible="{Binding AccountControlsVisible}">
           <Button Content="{Binding LogoutText}" Command="{Binding LogoutPressed}" Margin="4" />
-          <Button Content="Add account" IsVisible="{Binding EnableMultiAccounts}" Command="{Binding AddAccountPressed}" Margin="4" />
+          <Button Content="Добавить аккаунт" IsVisible="{Binding EnableMultiAccounts}" Command="{Binding AddAccountPressed}" Margin="4" />
         </StackPanel>
-        <Button Content="Login as Guest" Command="{Binding LoginAsGuestCommand}" Margin="4" IsVisible="{Binding IsNotGuest}" />
+        <Button Content="Войти как гость" Command="{Binding LoginAsGuestCommand}" Margin="4" IsVisible="{Binding IsNotGuest}" />
         <StackPanel Orientation="Vertical" IsVisible="{Binding AccountSwitchVisible}">
           <TextBlock Text="{Binding AccountSwitchText}" Margin="4" />
 
