@@ -7,16 +7,16 @@
         Width="350" Height="100"
         x:Class="SS14.Launcher.Views.DirectConnectDialog"
         Icon="{DynamicResource WindowIcon}"
-        Title="Direct Connect..."
+        Title="Прямое подключение..."
         WindowStartupLocation="CenterOwner">
 
   <DockPanel Margin="4">
     <TextBlock Classes="NanoHeadingMedium" HorizontalAlignment="Center" DockPanel.Dock="Top"
-               Text="Enter server address to connect:" />
+               Text="Введите адрес сервера для подключения:" />
 
     <DockPanel DockPanel.Dock="Bottom">
-      <Button DockPanel.Dock="Right" Name="SubmitButton" Content="Connect" />
-      <TextBlock Name="InvalidLabel" Text="Address is invalid" VerticalAlignment="Center" />
+      <Button DockPanel.Dock="Right" Name="SubmitButton" Content="Подключиться" />
+      <TextBlock Name="InvalidLabel" Text="Некорректный адрес" VerticalAlignment="Center" />
     </DockPanel>
 
     <TextBox Name="AddressBox" Watermark="ss14://example.com:1212" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" />

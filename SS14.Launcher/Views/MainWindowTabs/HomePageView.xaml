@@ -10,22 +10,21 @@
   </Design.DataContext>
 
   <DockPanel>
-    <!-- Account info -->
+    <!-- Информация об аккаунте -->
 
-
-    <!-- Favorites -->
+    <!-- Избранное -->
     <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="4, 0, 4, 2">
-      <TextBlock DockPanel.Dock="Left" Text="Favorite Servers:" Classes="NanoHeadingMedium" />
-      <Button DockPanel.Dock="Right" Content="Add Favorite..." Classes="OpenLeft" Command="{Binding AddFavoritePressed}" />
-      <Button DockPanel.Dock="Right" Content="Refresh" Classes="OpenRight" Command="{Binding RefreshPressed}" />
+      <TextBlock DockPanel.Dock="Left" Text="Избранные серверы:" Classes="NanoHeadingMedium" />
+      <Button DockPanel.Dock="Right" Content="Добавить в избранное..." Classes="OpenLeft" Command="{Binding AddFavoritePressed}" />
+      <Button DockPanel.Dock="Right" Content="Обновить" Classes="OpenRight" Command="{Binding RefreshPressed}" />
     </DockPanel>
 
     <DockPanel DockPanel.Dock="Bottom" LastChildFill="False" Margin="0, 5, 5, 1">
       <Button DockPanel.Dock="Right" HorizontalAlignment="Right"  Classes="OpenLeft"
-              Content="Direct Connect To Server..."
+              Content="Прямое подключение к серверу..."
               Command="{Binding DirectConnectPressed}" />
       <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Classes="OpenRight"
-              Content="Run content bundle/replay"
+              Content="Запустить content bundle/реплей"
               Click="OpenReplayClicked" />
     </DockPanel>
 
@@ -39,7 +38,7 @@
         <Panel>
           <DockPanel IsVisible="{Binding !FavoritesEmpty}" LastChildFill="True">
             <StackPanel DockPanel.Dock="Bottom" IsVisible="True">
-            <Button Content="Go to the servers tab" Command="{Binding MainWindowViewModel.SelectTabServers}"
+            <Button Content="Перейти на вкладку серверов" Command="{Binding MainWindowViewModel.SelectTabServers}"
                     HorizontalAlignment="Center" />
             </StackPanel>
             <ItemsControl ItemsSource="{Binding Favorites}"
@@ -47,9 +46,9 @@
           </DockPanel>
           <StackPanel IsVisible="{Binding FavoritesEmpty}"
                       Orientation="Vertical" VerticalAlignment="Center">
-            <TextBlock Text="Mark servers as favorite for easy access here" HorizontalAlignment="Center"
+            <TextBlock Text="Добавляйте серверы в избранное для быстрого доступа" HorizontalAlignment="Center"
                        Margin="0 0 0 10" />
-            <Button Content="Go to the servers tab" Command="{Binding MainWindowViewModel.SelectTabServers}"
+            <Button Content="Перейти на вкладку серверов" Command="{Binding MainWindowViewModel.SelectTabServers}"
                     HorizontalAlignment="Center" />
           </StackPanel>
         </Panel>

@@ -15,7 +15,7 @@
     <Expander Name="Expando" Classes="NoPad" IsExpanded="{Binding IsExpanded}">
       <Expander.Header>
         <DockPanel>
-          <Button IsEnabled="{Binding IsOnline}" DockPanel.Dock="Right" Content="Connect"
+          <Button IsEnabled="{Binding IsOnline}" DockPanel.Dock="Right" Content="Подключиться"
                   Command="{Binding ConnectPressed}" />
           <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center"
                      TextAlignment="Center" Text="{Binding ServerStatusString}"
@@ -41,15 +41,15 @@
         <Control DockPanel.Dock="Top" Height="8" />
 
         <Grid DockPanel.Dock="Right" VerticalAlignment="Bottom" RowDefinitions="Auto,Auto">
-          <!-- Favorite add/remove button -->
+          <!-- Кнопка добавления/удаления из избранного -->
           <Button Grid.Row="0" HorizontalAlignment="Right"
                   Content="{Binding FavoriteButtonText}"
                   Command="{Binding FavoriteButtonPressed}" />
 
-          <!-- Raise to top button. -->
+          <!-- Кнопка поднятия вверх -->
           <Button Grid.Row="1" HorizontalAlignment="Right"
                   IsVisible="{Binding ViewedInFavoritesPane}" Classes="OpenRight"
-                  Content="Raise to top"
+                  Content="Поднять вверх"
                   Command="{Binding FavoriteRaiseButtonPressed}" />
         </Grid>
 

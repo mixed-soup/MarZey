@@ -19,13 +19,13 @@
                    MinWidth="300" />
 
       <Panel DockPanel.Dock="Bottom">
-        <Button Content="Ok" IsVisible="{Binding IsErrored}" HorizontalAlignment="Center"
+        <Button Content="OK" IsVisible="{Binding IsErrored}" HorizontalAlignment="Center"
                 Command="{Binding ErrorDismissed}" MinWidth="75" />
 
         <DockPanel LastChildFill="False">
           <Button DockPanel.Dock="Left"
                   Name="CancelButton"
-                  Content="Cancel"
+                  Content="Отмена"
                   Command="{Binding Cancel}"
                   IsVisible="{Binding !IsErrored}" />
 

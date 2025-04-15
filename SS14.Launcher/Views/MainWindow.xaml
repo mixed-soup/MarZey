@@ -19,35 +19,35 @@
 
   <Panel>
     <DockPanel LastChildFill="true">
-      <!-- Header -->
+      <!-- Шапка -->
       <Panel DockPanel.Dock="Top" >
         <Panel.Background>
           <SolidColorBrush Color="#212126" />
         </Panel.Background>
 
-        <!-- Note: that top margin gets disabled from C# on Windows 11 due to the colored title bar. -->
+        <!-- Примечание: верхний отступ отключается в коде для Windows 11 из-за цветной строки заголовка -->
         <DockPanel Name="HeaderPanel" Margin="4, 8, 0, 0">
-          <!-- Logo -->
+          <!-- Логотип -->
           <Image DockPanel.Dock="Left" HorizontalAlignment="Left" Height="60" Margin="0, 0, 0, 8"
                  Source="{DynamicResource LogoLong}" />
           <!--<v:Logo DockPanel.Dock="Left" Height="60" HorizontalAlignment="Left" Margin="0, 8"></v:Logo>-->
           <Grid DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center"
                 ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto" Margin="0, 0, 3, 0">
-            <!-- Discord link -->
+            <!-- Ссылка на Discord -->
             <Button Grid.Row="0" Grid.Column="0" MinWidth="90"
                     Command="{Binding OnDiscordButtonPressed}" Classes="OpenBoth"
                     Margin="0, 6, 2, 2">
               <v:IconLabel Icon="{DynamicResource InfoIcon-discord}" Content="Discord" />
             </Button>
 
-            <!-- Website link -->
+            <!-- Ссылка на сайт -->
             <Button Grid.Row="0" Grid.Column="1" MinWidth="90"
                     Command="{Binding OnWebsiteButtonPressed}" Classes="OpenLeft"
                     Margin="0, 6, 0, 2">
-              <v:IconLabel Icon="{DynamicResource InfoIcon-web}" Content="Website" />
+              <v:IconLabel Icon="{DynamicResource InfoIcon-web}" Content="Сайт" />
             </Button>
 
-            <!-- Account drop down -->
+            <!-- Выпадающее меню аккаунта -->
             <v:AccountDropDown Grid.ColumnSpan="2" Grid.Row="1"
                                DataContext="{Binding AccountDropDown}" />
           </Grid>
@@ -55,7 +55,7 @@
       </Panel>
       <Panel DockPanel.Dock="Top" Classes="SenseLineHorizontal" />
       <Grid>
-        <!-- Main tabbed layout when logged in -->
+        <!-- Основной интерфейс с вкладками при входе -->
         <TabControl IsVisible="{Binding LoggedIn}" ItemsSource="{Binding Tabs}" TabStripPlacement="Bottom"
                     SelectedIndex="{Binding SelectedIndex,Mode=TwoWay}" Margin="0 4 0 0">
           <TabControl.ItemTemplate>
@@ -64,7 +64,7 @@
             </DataTemplate>
           </TabControl.ItemTemplate>
         </TabControl>
-        <!-- Login interface when not logged in -->
+        <!-- Интерфейс входа при выходе из системы -->
         <v:MainWindowLogin
           IsVisible="{Binding !$parent.DataContext.LoggedIn}"
           DataContext="{Binding LoginViewModel}" />
@@ -101,30 +101,30 @@
 
     <ContentControl Classes="OverlayBox" IsVisible="{Binding OutOfDate}">
       <StackPanel Orientation="Vertical">
-        <TextBlock HorizontalAlignment="Center" Classes="NanoHeadingMedium" Text="Loader out of date" />
+        <TextBlock HorizontalAlignment="Center" Classes="NanoHeadingMedium" Text="Лоадер устарел" />
         <TextBlock Margin="0, 10" TextAlignment="Center"
-                   Text="Loader is out of date&#x0a;Some method is detected or an important feature is present. Get an update from github." />
+                   Text="Лоадер устарел&#x0a;Обнаружен новый метод или важная функция. Получите обновление через GitHub." />
         <DockPanel LastChildFill="False">
-          <Button DockPanel.Dock="Right" Content="Exit" Command="{Binding ExitPressed}" />
-          <Button DockPanel.Dock="Left" Content="Download (manual)" Command="{Binding DownloadPressed}" />
+          <Button DockPanel.Dock="Right" Content="Выход" Command="{Binding ExitPressed}" />
+          <Button DockPanel.Dock="Left" Content="Скачать (вручную)" Command="{Binding DownloadPressed}" />
         </DockPanel>
       </StackPanel>
     </ContentControl>
 
-    <!-- Yes I realize the absurdity of having literally 5 of these error overlay controls defined get off my back. -->
+    <!-- Да, я понимаю абсурдность наличия целых 5 таких оверлейных контролов - отстаньте от меня. -->
 
     <ContentControl Classes="OverlayBox" IsVisible="{Binding !HasDismissedEarlyAccessWarning.Value}">
       <StackPanel Orientation="Vertical">
-        <TextBlock HorizontalAlignment="Center" Classes="NanoHeadingMedium" Text="Heads up!" />
+        <TextBlock HorizontalAlignment="Center" Classes="NanoHeadingMedium" Text="Внимание!" />
         <TextBlock Margin="0, 10" TextAlignment="Center" MaxWidth="450" TextWrapping="Wrap"
-                   Text="Space Station 14 is still very much in alpha. We hope you like what you see, and maybe even stick around, but make sure to keep your expectations modest for the time being." />
-        <Button Content="Got it!" Command="{Binding DismissEarlyAccessPressed}" HorizontalAlignment="Center" />
+                   Text="Space Station 14 всё ещё находится в альфа-версии. Мы надеемся, что вам понравится то, что вы увидите, и, возможно, вы останетесь, но пока сохраняйте скромные ожидания." />
+        <Button Content="Понял!" Command="{Binding DismissEarlyAccessPressed}" HorizontalAlignment="Center" />
       </StackPanel>
     </ContentControl>
 
     <!--
-    Literally just keep piling them on it doesn't matter.
-    This is way easier than coming up with some horribly over-engineered solution.
+    Можно просто продолжать добавлять их - это не важно.
+    Это намного проще, чем придумывать чересчур сложное решение.
     -->
 
     <v:ConnectingOverlay DataContext="{Binding ConnectingVM}"
@@ -133,7 +133,7 @@
     <v:AngleBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
     <ContentControl Classes="OverlayBox" Name="DragDropOverlay" IsVisible="False">
-      <TextBlock Text="Drop to run game" />
+      <TextBlock Text="Перетащите для запуска игры" />
     </ContentControl>
   </Panel>
 </Window>
