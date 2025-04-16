@@ -54,5 +54,5 @@ public class NewsTabViewModel : MainWindowTabViewModel
 
     public ObservableCollection<NewsEntryViewModel> NewsEntries { get; }
 
-    public override string Name => "News";
+    public override string Name => "Новости";
 }

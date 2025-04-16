@@ -21,7 +21,7 @@ namespace SS14.Launcher.ViewModels.MainWindowTabs
 {
     public class PatchesTabViewModel : MainWindowTabViewModel
     {
-        public override string Name => "Plugins";
+        public override string Name => "Плагины";
         public ObservableCollection<MarseyPatch> MarseyPatches { get; } = new ObservableCollection<MarseyPatch>();
         public ObservableCollection<SubverterPatch> SubverterPatches { get; } = new ObservableCollection<SubverterPatch>();
         public ObservableCollection<ResourcePack> ResourcePacks { get; } = new ObservableCollection<ResourcePack>();
@@ -91,7 +91,7 @@ namespace SS14.Launcher.ViewModels.MainWindowTabs
                 patchList.Add(patch);
             }
 
-            Log.Debug($"Refreshed {patchName}, got {patchList.Count}.");
+            Log.Debug($"Обновлен {patchName}, получено {patchList.Count}.");
         }
 
         private void LoadResPacks(List<ResourcePack> ResPacks, ICollection<ResourcePack> RPacks)
@@ -103,7 +103,7 @@ namespace SS14.Launcher.ViewModels.MainWindowTabs
                 }
             }
 
-            Log.Debug($"Refreshed resourcepacks, got {ResourcePacks.Count}.");
+            Log.Debug($"Обновлены ресурс-паки, получено {ResourcePacks.Count}.");
         }
 
         private void Refresh()
@@ -112,7 +112,7 @@ namespace SS14.Launcher.ViewModels.MainWindowTabs
             SaveEnabledPatches(MarseyPatches, assemblyFileNames);
             SaveEnabledPatches(SubverterPatches, assemblyFileNames);
 
-            Log.Debug($"Saved {assemblyFileNames.Count} patches to config");
+            Log.Debug($"Сохранено {assemblyFileNames.Count} патчей в конфиг");
             Persist.SavePatchlistConfig(assemblyFileNames);
         }
 
@@ -155,7 +155,7 @@ public class BooleanToPreloadConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        return value is true ? "(preload)" : "";
+        return value is true ? "(предзагрузка)" : "";
     }
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

@@ -74,7 +74,7 @@ public class OptionsTabViewModel : MainWindowTabViewModel, INotifyPropertyChange
     public bool HideDebugKnobs => false;
 #endif
 
-    public override string Name => "Options";
+    public override string Name => "Настройки";
 
     public bool CompatMode
     {
@@ -595,12 +595,12 @@ public class HideLevelDescriptionConverter : IValueConverter
     {
         return (HideLevel)(value ?? HideLevel.Normal) switch
         {
-            HideLevel.Disabled => "Hidesey is disabled. Servers with engine version 183.0.0 or above will crash the client.",
-            HideLevel.Duplicit => "Patcher is hidden from the game. Patches remain visible to allow administrators to inspect which patches are being used.",
-            HideLevel.Normal => "Patcher and patches are hidden.",
-            HideLevel.Explicit => "Patcher and patches are hidden. Separate patch logging is disabled.",
-            HideLevel.Unconditional => "Patcher, patches are hidden. Separate patch logging, Subversion is disabled.",
-            _ => "Unknown hide level."
+            HideLevel.Disabled => "Hidesey отключен. Серверы с версией движка 183.0.0 и выше вызовут краш клиента.",
+            HideLevel.Duplicit => "Патчер скрыт от игры. Патчи остаются видимыми для администраторов.",
+            HideLevel.Normal => "Патчер и патчи скрыты.",
+            HideLevel.Explicit => "Патчер и патчи скрыты. Отдельное логирование патчей отключено.",
+            HideLevel.Unconditional => "Патчер и патчи скрыты. Отключено логирование патчей и Subversion.",
+            _ => "Неизвестный уровень скрытия."
         };
     }
 

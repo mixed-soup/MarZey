@@ -61,7 +61,7 @@ public class HomePageViewModel : MainWindowTabViewModel
 
     [Reactive] public bool FavoritesEmpty { get; private set; } = true;
 
-    public override string Name => "Home";
+    public override string Name => "Домашняя";
     public Control? Control { get; set; }
 
     public async void DirectConnectPressed()
