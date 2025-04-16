@@ -65,7 +65,7 @@ public sealed class ServerEntryViewModel : ObservableRecipient, IRecipient<Favor
     }
 
     public string Name => Favorite?.Name ?? _cacheData.Name ?? _fallbackName;
-    public string FavoriteButtonText => IsFavorite ? "Remove Favorite" : "Add Favorite";
+    public string FavoriteButtonText => IsFavorite ? "Убрать избранное" : "Добавить избранное";
     private bool IsFavorite => _cfg.FavoriteServers.Lookup(Address).HasValue;
 
     public bool ViewedInFavoritesPane { get; set; }
@@ -77,7 +77,7 @@ public sealed class ServerEntryViewModel : ObservableRecipient, IRecipient<Favor
             switch (_cacheData.Status)
             {
                 case ServerStatusCode.Offline:
-                    return "OFFLINE";
+                    return "ОФФЛАЙН НАХУЙ";
                 case ServerStatusCode.Online:
                     // Give a ratio for servers with a defined player count, or just a current number for those without.
                     if (_cacheData.SoftMaxPlayerCount > 0)
@@ -89,7 +89,7 @@ public sealed class ServerEntryViewModel : ObservableRecipient, IRecipient<Favor
                         return $"{_cacheData.PlayerCount} / ∞";
                     }
                 case ServerStatusCode.FetchingStatus:
-                    return "Fetching...";
+                    return "Так чо тут у нас...";
                 default:
                     throw new NotSupportedException();
             }
@@ -103,17 +103,17 @@ public sealed class ServerEntryViewModel : ObservableRecipient, IRecipient<Favor
             switch (_cacheData.Status)
             {
                 case ServerStatusCode.Offline:
-                    return "Unable to contact server";
+                    return "Невозможно связаться с сервером";
                 case ServerStatusCode.FetchingStatus:
-                    return "Fetching server status...";
+                    return "Получение статуса сервера...";
             }
 
             return _cacheData.StatusInfo switch
             {
-                ServerStatusInfoCode.NotFetched => "Fetching server description...",
-                ServerStatusInfoCode.Fetching => "Fetching server description...",
-                ServerStatusInfoCode.Error => "Error while fetching server description",
-                ServerStatusInfoCode.Fetched => _cacheData.Description ?? "No server description provided",
+                ServerStatusInfoCode.NotFetched => "Получение описания сервера...",
+                ServerStatusInfoCode.Fetching => "Получение описания сервера...",
+                ServerStatusInfoCode.Error => "Ошибка при получении описания сервера",
+                ServerStatusInfoCode.Fetched => _cacheData.Description ?? "Описание сервера отсутствует",
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
@@ -139,7 +139,7 @@ public sealed class ServerEntryViewModel : ObservableRecipient, IRecipient<Favor
         {
             if (_cfg.HasCustomHubs)
             {
-                return _cacheData.HubAddress == null ? null : $"Fetched from {GetHubShortName(_cacheData.HubAddress)}";
+                return _cacheData.HubAddress == null ? null : $"Получено с {GetHubShortName(_cacheData.HubAddress)}";
             }
 
             return null;

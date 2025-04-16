@@ -19,7 +19,7 @@ public class ServerListTabViewModel : MainWindowTabViewModel
 
     private string? _searchString;
 
-    public override string Name => "Servers";
+    public override string Name => "Сервера";
 
     public string? SearchString
     {
@@ -34,36 +34,36 @@ public class ServerListTabViewModel : MainWindowTabViewModel
     public bool ListTextVisible => _serverListCache.Status != RefreshListStatus.Updated;
     public bool SpinnerVisible => _serverListCache.Status < RefreshListStatus.Updated;
 
-    public string ListText
+public string ListText
+{
+    get
     {
-        get
+        var status = _serverListCache.Status;
+        switch (status)
         {
-            var status = _serverListCache.Status;
-            switch (status)
-            {
-                case RefreshListStatus.Error:
-                    return "There was an error fetching the master server lists.";
-                case RefreshListStatus.PartialError:
-                    return "Failed to fetch some or all server lists. Ensure your hub configuration is correct.";
-                case RefreshListStatus.UpdatingMaster:
-                    return "Fetching master server list...";
-                case RefreshListStatus.Updating:
-                    return "Discovering servers...";
-                case RefreshListStatus.NotUpdated:
-                    return "";
-                case RefreshListStatus.Updated:
-                default:
-                    if (SearchedServers.Count == 0 && _serverListCache.AllServers.Count != 0)
-                        // TODO: Actually make this show up or just remove it entirely
-                        return "No servers match your search or filter settings.";
+            case RefreshListStatus.Error:
+                return "Ошибка при получении списка мастер-серверов.";
+            case RefreshListStatus.PartialError:
+                return "Не удалось получить часть или все списки серверов. Проверьте настройки хаба.";
+            case RefreshListStatus.UpdatingMaster:
+                return "Получение списка мастер-серверов...";
+            case RefreshListStatus.Updating:
+                return "Поиск серверов...";
+            case RefreshListStatus.NotUpdated:
+                return "";
+            case RefreshListStatus.Updated:
+            default:
+                if (SearchedServers.Count == 0 && _serverListCache.AllServers.Count != 0)
+                    // TODO: Оставить или удалить
+                    return "Нет серверов, соответствующих вашему поиску или фильтрам.";
 
-                    if (_serverListCache.AllServers.Count == 0)
-                        return "There are no public servers. Ensure your hub configuration is correct.";
+                if (_serverListCache.AllServers.Count == 0)
+                    return "Публичные серверы отсутствуют. Проверьте настройки хаба.";
 
-                    return "";
-            }
+                return "";
         }
     }
+}
 
     [Reactive] public bool FiltersVisible { get; set; }
 

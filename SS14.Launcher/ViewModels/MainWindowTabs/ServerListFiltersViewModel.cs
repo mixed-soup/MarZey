@@ -51,41 +51,46 @@ public sealed partial class ServerListFiltersViewModel : ObservableObject
         set => SetProperty(ref _filteredServers, value);
     }
 
-    public ServerListFiltersViewModel(DataManager dataManager)
-    {
-        _dataManager = dataManager;
+public ServerListFiltersViewModel(DataManager dataManager)
+{
+    _dataManager = dataManager;
 
-        FiltersEighteenPlus.Add(new ServerFilterViewModel("Yes", "Yes",
-            new ServerFilter(ServerFilterCategory.EighteenPlus, ServerFilter.DataTrue), this));
-        FiltersEighteenPlus.Add(new ServerFilterViewModel("No", "No",
-            new ServerFilter(ServerFilterCategory.EighteenPlus, ServerFilter.DataFalse), this));
+    // Фильтр 18+
+    FiltersEighteenPlus.Add(new ServerFilterViewModel("Да", "Да",
+        new ServerFilter(ServerFilterCategory.EighteenPlus, ServerFilter.DataTrue), this));
+    FiltersEighteenPlus.Add(new ServerFilterViewModel("Нет", "Нет",
+        new ServerFilter(ServerFilterCategory.EighteenPlus, ServerFilter.DataFalse), this));
 
-        FilterPlayerCountHideEmpty = new ServerFilterViewModel(
-            "Servers with no players will not be shown",
-            "Hide empty",
-            ServerFilter.PlayerCountHideEmpty,
-            this);
+    // Фильтр пустых серверов
+    FilterPlayerCountHideEmpty = new ServerFilterViewModel(
+        "Серверы без игроков не будут отображаться",
+        "Скрыть пустые",
+        ServerFilter.PlayerCountHideEmpty,
+        this);
 
-        FilterPlayerCountHideFull = new ServerFilterViewModel(
-            "Servers that are full will not be shown",
-            "Hide full",
-            ServerFilter.PlayerCountHideFull,
-            this);
+    // Фильтр заполненных серверов
+    FilterPlayerCountHideFull = new ServerFilterViewModel(
+        "Заполненные серверы не будут отображаться",
+        "Скрыть заполненные",
+        ServerFilter.PlayerCountHideFull,
+        this);
 
-        FilterPlayerCountMinimum = new ServerFilterCounterViewModel(
-            "Servers with less players will not be shown",
-            "Minimum: ",
-            ServerFilter.PlayerCountMin,
-            _dataManager.GetCVarEntry(CVars.FilterPlayerCountMinValue),
-            this);
+    // Фильтр минимального количества игроков
+    FilterPlayerCountMinimum = new ServerFilterCounterViewModel(
+        "Серверы с меньшим количеством игроков не будут отображаться",
+        "Минимум: ",
+        ServerFilter.PlayerCountMin,
+        _dataManager.GetCVarEntry(CVars.FilterPlayerCountMinValue),
+        this);
 
-        FilterPlayerCountMaximum = new ServerFilterCounterViewModel(
-            "Servers with more players will not be shown",
-            "Maximum: ",
-            ServerFilter.PlayerCountMax,
-            _dataManager.GetCVarEntry(CVars.FilterPlayerCountMaxValue),
-            this);
-    }
+    // Фильтр максимального количества игроков
+    FilterPlayerCountMaximum = new ServerFilterCounterViewModel(
+        "Серверы с большим количеством игроков не будут отображаться",
+        "Максимум: ",
+        ServerFilter.PlayerCountMax,
+        _dataManager.GetCVarEntry(CVars.FilterPlayerCountMaxValue),
+        this);
+}
 
     /// <summary>
     /// Update the set of visible filters, to avoid redundant filters that would match no servers.
@@ -176,11 +181,11 @@ public sealed partial class ServerListFiltersViewModel : ObservableObject
         filtersHub.Sort(ServerFilterShortNameComparer.Instance);
 
         // Unspecified always comes last.
-        filtersLanguage.Add(new ServerFilterViewModel("Unspecified", "Unspecified",
+        filtersLanguage.Add(new ServerFilterViewModel("Не указано", "Не указано",
             new ServerFilter(ServerFilterCategory.Language, ServerFilter.DataUnspecified), this));
-        filtersRegion.Add(new ServerFilterViewModel("Unspecified", "Unspecified",
+        filtersRegion.Add(new ServerFilterViewModel("Не указано", "Не указано",
             new ServerFilter(ServerFilterCategory.Region, ServerFilter.DataUnspecified), this));
-        filtersRolePlay.Add(new ServerFilterViewModel("Unspecified", "Unspecified",
+        filtersRolePlay.Add(new ServerFilterViewModel("Не указано", "Не указано",
             new ServerFilter(ServerFilterCategory.RolePlay, ServerFilter.DataUnspecified), this));
 
         // Set.
