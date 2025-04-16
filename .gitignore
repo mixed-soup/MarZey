@@ -21,6 +21,11 @@ cmake-build*/
 publish_test/
 TestResults/  # Результаты юнит-тестов
 *.cache       # Кэш-файлы компиляции
+*.tmp
+*.log
+*.bak
+*.vs
+*.vsidx1
 
 ### Docker ###
 docker-compose.*.yml
@@ -43,4 +48,5 @@ SS14.Launcher/FodyWeavers.xsd
 
 ### Исключения ###
 # Разрешаем конкретную папку bin в PublishFiles
+
 !PublishFiles/Space Station 14 Launcher.app/Contents/Resources/bin/
