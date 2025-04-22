@@ -13,6 +13,7 @@
 
 # VS Code
 .vscode/
+.vsi
 
 ### Билд ###
 bin/
@@ -26,6 +27,7 @@ TestResults/  # Результаты юнит-тестов
 *.bak
 *.vs
 *.vsidx1
+*.vsidx
 
 ### Docker ###
 docker-compose.*.yml
