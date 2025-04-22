@@ -28,6 +28,7 @@ TestResults/  # Результаты юнит-тестов
 *.vs
 *.vsidx1
 *.vsidx
+.suo
 
 ### Docker ###
 docker-compose.*.yml
