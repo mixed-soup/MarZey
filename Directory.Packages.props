@@ -4,9 +4,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- Launcher-loader shared stuff -->
-    <PackageVersion Include="Lib.Harmony.Thin" Version="2.3.3" />
+    <PackageVersion Include="Lib.Harmony.Thin" Version="2.3.6" />
     <PackageVersion Include="Microsoft.Data.Sqlite" Version="9.0.0-preview.3.24172.4" />
-    <PackageVersion Include="MonoMod.Core" Version="1.2.2" />
+    <PackageVersion Include="MonoMod.Core" Version="1.2.3" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Lib.Harmony" Version="2.3.3" />
     <PackageVersion Include="NP.Ava.Visuals" Version="1.0.5" />
