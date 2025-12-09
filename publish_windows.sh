@@ -25,8 +25,8 @@ mkdir -p bin/publish/Windows/Marsey/ResourcePacks
 cp -r Dependencies/dotnet/windows/* bin/publish/Windows/dotnet
 cp "SS14.Launcher.Strap/bin/Release/net45/publish/Marseyloader.exe" bin/publish/Windows
 cp "SS14.Launcher.Strap/console.bat" bin/publish/Windows
-cp -r SS14.Launcher/bin/Release/net9.0/win-x64/publish/* bin/publish/Windows/bin
-cp -r SS14.Loader/bin/Release/net9.0/win-x64/publish/* bin/publish/Windows/bin/loader
+cp -r SS14.Launcher/bin/Release/net10.0/win-x64/publish/* bin/publish/Windows/bin
+cp -r SS14.Loader/bin/Release/net10.0/win-x64/publish/* bin/publish/Windows/bin/loader
 
 pushd bin/publish/Windows
 zip -r ../../../SS14.Launcher_Windows.zip *
