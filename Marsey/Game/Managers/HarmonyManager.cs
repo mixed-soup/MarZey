@@ -18,7 +18,7 @@ public static class HarmonyManager
         _harmony = harmony;
 
         if (MarseyConf.DebugAllowed)
-            Harmony.DEBUG = true;
+            Harmony.DEBUG = false; /// who even used it???
     }
 
     public static Harmony GetHarmony() => _harmony;
