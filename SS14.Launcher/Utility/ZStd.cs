@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Buffers;
 using System.IO;
 using System.Reflection;
@@ -14,6 +14,9 @@ namespace SS14.Launcher.Utility;
 
 public static class ZStd
 {
+    private static readonly object ResolverLock = new();
+    private static bool _resolverSet;
+
     public static int CompressBound(int length)
     {
         return (int)ZSTD_compressBound((nuint)length);
@@ -22,16 +25,23 @@ public static class ZStd
     [ModuleInitializer]
     public static void InitZStd()
     {
-        try
+        lock (ResolverLock)
         {
-            NativeLibrary.SetDllImportResolver(
-                typeof(Zstd).Assembly,
-                ResolveZstd
-            );
-        }
-        catch (InvalidOperationException ex)
-        {
-            Console.WriteLine($"Failed to set DllImportResolver for Zstd: {ex}");
+            if (_resolverSet)
+                return;
+
+            try
+            {
+                NativeLibrary.SetDllImportResolver(
+                    typeof(Zstd).Assembly,
+                    ResolveZstd
+                );
+                _resolverSet = true;
+            }
+            catch (InvalidOperationException)
+            {
+                _resolverSet = true;
+            }
         }
     }
 
